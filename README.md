@@ -4,6 +4,8 @@
 
 An automated Python pipeline for cleaning, validating, and analyzing a noisy customer Sales & Marketing dataset using Pandas and NumPy.
 
+---
+
 ## Project Objective
 
 The pipeline automatically performs:
@@ -17,6 +19,8 @@ The pipeline automatically performs:
 - Categorical and groupby analysis
 - EDA visualization generation
 
+---
+
 ## Dataset
 
 | Property | Value |
@@ -26,17 +30,19 @@ The pipeline automatically performs:
 | Domain | Customer Sales & Marketing |
 | Format | CSV |
 
+---
+
 ## Data Transformation Logic
 
 ### Missing Values
 
 | Column | Missing Values | Strategy |
 |---|---:|---|
-| gender | 738 | Mode |
-| age | 1,200 | Median |
-| total_spent | 1,050 | Median |
-| satisfaction_score | 702 | Median |
-| coupon_code | 6,133 | `NO_COUPON` |
+| `gender` | 738 | Mode |
+| `age` | 1,200 | Median |
+| `total_spent` | 1,050 | Median |
+| `satisfaction_score` | 702 | Median |
+| `coupon_code` | 6,133 | `NO_COUPON` |
 
 ### Invalid Values
 
@@ -44,11 +50,13 @@ Customer ages outside the valid range of **18–100** are treated as invalid, co
 
 ### String & Structural Cleaning
 
-- Leading/trailing whitespace is removed.
+- Leading and trailing whitespace is removed.
 - Empty strings are converted to missing values.
-- Column names are converted to lowercase snake_case.
+- Column names are converted to lowercase `snake_case`.
 - Date columns are converted to datetime.
 - Duplicate records are automatically detected and removed.
+
+---
 
 ## Before vs After Cleaning
 
@@ -60,6 +68,8 @@ Customer ages outside the valid range of **18–100** are treated as invalid, co
 | Duplicate Rows | 0 | 0 |
 
 **Result:** All 15,000 records were retained without arbitrary deletion.
+
+---
 
 ## EDA & Analytics
 
@@ -94,6 +104,8 @@ The pipeline generates:
 | Organic | 1232.29 |
 | Google Ads | 1218.41 |
 
+---
+
 ## EDA Charts
 
 ### Age Distribution
@@ -120,6 +132,8 @@ The pipeline generates:
 
 ![Correlation Heatmap](outputs/figures/correlation_heatmap.png)
 
+---
+
 ## Project Structure
 
 ```text
@@ -127,10 +141,19 @@ automated-dataset-cleaning-pipeline/
 │
 ├── data/
 │   ├── raw/
+│   │   └── Sales - Marketing customer dataset.csv
 │   └── processed/
+│       └── cleaned_dataset.csv
 │
 ├── outputs/
 │   ├── figures/
+│   │   ├── age_distribution.png
+│   │   ├── total_spending_distribution.png
+│   │   ├── subscription_distribution.png
+│   │   ├── churn_distribution.png
+│   │   ├── average_spending_by_subscription.png
+│   │   └── correlation_heatmap.png
+│   │
 │   └── reports/
 │
 ├── src/
@@ -143,31 +166,105 @@ automated-dataset-cleaning-pipeline/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-Technologies
-Python 3.10
-Pandas
-NumPy
-Matplotlib
-Seaborn
-Google Colab
-Git & GitHub
-Execution
+```
 
-Run the complete pipeline with:
+---
 
+## Technologies
+
+- Python 3.10
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Google Colab
+- Git & GitHub
+
+---
+
+## Dependencies
+
+The project dependencies are listed in `requirements.txt`:
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+```
+
+---
+
+## How to Run Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/saif-m7/automated-dataset-cleaning-pipeline.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd automated-dataset-cleaning-pipeline
+```
+
+### 3. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the Virtual Environment
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+### 5. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Run the Complete Pipeline
+
+```bash
 python src/main.py
+```
 
 The pipeline outputs:
 
-Cleaned dataset → data/processed/cleaned_dataset.csv
-Cleaning reports → outputs/reports/
-EDA charts → outputs/figures/
-Google Colab
+- Cleaned dataset → `data/processed/cleaned_dataset.csv`
+- Cleaning reports → `outputs/reports/`
+- EDA charts → `outputs/figures/`
 
-The complete pipeline has been successfully executed in Google Colab.
+---
 
-**Colab:** [Open the Google Colab Notebook] (https://colab.research.google.com/drive/1_cW4jUL6dW0oWaqSygQw30aIcXuXkry3?usp=sharing  )
+## Google Colab
 
-Conclusion
+The complete pipeline has been successfully executed in Google Colab using the public GitHub repository.
 
-The pipeline successfully transformed the 15,000-row dataset by reducing missing values from 9,823 to 0, handling invalid values, preserving all records, and generating statistical, categorical, grouped, and visual analytics.
+###  [Open the Google Colab Notebook](https://colab.research.google.com/drive/1_cW4jUL6dW0oWaqSygQw30aIcXuXkry3?usp=sharing)
+
+The Colab notebook demonstrates:
+
+- Dataset loading
+- Data quality assessment
+- Automated cleaning
+- Missing-value imputation
+- Statistical analysis
+- Categorical analysis
+- Groupby analysis
+- EDA visualizations
+- Pipeline execution logs
+
+---
+
+## Conclusion
+
+The pipeline successfully transformed the 15,000-row dataset by reducing missing values from **9,823 to 0**, handling invalid values, preserving all records, and generating statistical, categorical, grouped, and visual analytics.
+
+The project provides a reproducible and automated data preprocessing workflow suitable for downstream machine learning tasks.
