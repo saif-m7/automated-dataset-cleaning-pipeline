@@ -247,7 +247,9 @@ The pipeline outputs:
 
 The complete pipeline has been successfully executed in Google Colab using the public GitHub repository.
 
-###  [Open the Google Colab Notebook](https://colab.research.google.com/drive/1_cW4jUL6dW0oWaqSygQw30aIcXuXkry3?usp=sharing)
+**Google Colab:**
+
+https://colab.research.google.com/drive/1_cW4jUL6dW0oWaqSygQw30aIcXuXkry3?usp=sharing
 
 The Colab notebook demonstrates:
 
